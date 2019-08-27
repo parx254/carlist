@@ -133,7 +133,7 @@
     });
     
     $("body").on("click", ".btn-edit", function(){
-        var uniqueid = $(this).parents("tr").attr('data-carid');
+        var carid = $(this).parents("tr").attr('data-carid');
         var carmaker = $(this).parents("tr").attr('data-carmaker');
         var carmodel = $(this).parents("tr").attr('data-carmodel');
         var manufactoringyear = $(this).parents("tr").attr('data-manufactoringyear');
