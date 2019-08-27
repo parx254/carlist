@@ -186,7 +186,7 @@
     });
    
     $("body").on("click", ".btn-update", function(){
-        var uniqueid = $(this).parents("tr").find("input[uniqueid='edit_carid']").val();
+        var carid = $(this).parents("tr").find("input[uniqueid='edit_carid']").val();
         var carmaker = $(this).parents("tr").find("input[uniqueid='edit_carmaker']").val();
     	var carmodel = $(this).parents("tr").find("input[uniqueid='edit_carmodel']").val();
         var manufactoringyear = $(this).parents("tr").find("input[uniqueid='edit_manufactoringyear']").val();
