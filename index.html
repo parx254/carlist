@@ -1,230 +1,217 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Add Edit Delete Table</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+  <head>
+    <title>Add Edit Delete Table</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <style>
       body{
-          font-family: 'Open Sans', sans-serif;
-          width: 100%;
-          color: #2D2A26;
+      font-family: 'Open Sans', sans-serif;
+      width: 100%;
+      color: #2D2A26;
       }
-  form{
-  width: 100%;
-  background: yellow;
-  padding: 8px;
+      form{
+      width: 100%;
+      background: yellow;
+      padding: 8px;
       text-align: left;
-
-  }
-  table{
-  background: yellow;
+      }
+      table{
+      background: yellow;
       }
       header{
-          width: 100%;
-          background: #000;
-          color: #CE0E2D;
-          margin-top: 0px;
-          text-align: center;
+      width: 100%;
+      background: #000;
+      color: #CE0E2D;
+      margin-top: 0px;
+      text-align: center;
       }
       th{
-          color: #758692;
+      color: #758692;
       }
-  </style>
-</head>
-<body>
-    
-<header>
-  <h1>CarList</h1>
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>CarList</h1>
     </header>
-  <form>
-        
-    <div class="form-group">
-      <label>car id:</label>
-      <input type="number" uniqueid="carid" class="form-control" value="223" required="">
-    </div>
-    
-    <div class="form-group">
-      <label>carmaker:</label>
-      <input type="text" uniqueid="carmaker" class="form-control" value="Honda" required="">
-    </div>
-    <div class="form-group">
-      <label>carmodel:</label>
-      <input type="text" uniqueid="carmodel" class="form-control" value="Civic" required="">
-    </div>
-   
-   <div class="form-group">
-      <label>manufactoring year:</label>
-      <input type="text" uniqueid="manufactoringyear" class="form-control" value="2008" required="">
-    </div>
-    <div class="form-group">
-      <label>number of seats:</label>
-      <input type="number" uniqueid="numberofseats" class="form-control" value="4" required="">
-    </div>
-    
-    <div class="form-group">
-      <label>price per day:</label>
-      <input type="number" uniqueid="priceperday" class="form-control" value="65" required="">
-    </div>
-    <div class="form-group">
-      <label>rented date from:</label>
-      <input type="date" uniqueid="renteddatefrom" class="form-control" required="">
-    </div>
-    <div class="form-group">
-      <label>rented date to:</label>
-      <input type="date" uniqueid="renteddateto" class="form-control" required="">
-    </div>
+    <form>
       <div class="form-group">
-      <label>rented:</label>
-      <input type="text" uniqueid="rented" value="yes" class="form-control" required="">
-    </div>
-   
-    <button type="submit" class="btn btn-success save-btn">Submit</button>
-    
-  </form>
-  <br/>
-  <table class="table table-bordered data-table">
-    <thead>
-    <tr>
-      <th>carid</th>
-      <th>carmaker</th>
-      <th>carmodel</th>
-      <th>manufactoringyear</th>
-      <th>numberofseats</th>
-      <th>priceperday</th>
-      <th>renteddatefrom</th>
-      <th>renteddateto</th>
-      <th>rented</th>
-      <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-    </tbody>
-  </table>
-   
-   
-<script type="text/javascript">
-   
-    $("form").submit(function(e){
-        e.preventDefault();
-        var carid = $("input[uniqueid='carid']").val();
-        var carmaker = $("input[uniqueid='carmaker']").val();
-        var carmodel = $("input[uniqueid='carmodel']").val();
-        var manufactoringyear = $("input[uniqueid='manufactoringyear']").val();
-        var numberofseats = $("input[uniqueid='numberofseats']").val();
-        var priceperday = $("input[uniqueid='priceperday']").val();
-        var renteddatefrom = $("input[uniqueid='renteddatefrom']").val();
-        var renteddateto = $("input[uniqueid='renteddateto']").val();
-        var rented = $("input[uniqueid='rented']").val();
-        
-        $(".data-table tbody").append("<tr data-carid='"+carid+"' data-carmaker='"+carmaker+"' data-carmodel='"+carmodel+"' data-manufactoringyear='"+manufactoringyear+"' data-numberofseats='"+numberofseats+"' data-priceperday='"+priceperday+"' data-renteddatefrom='"+renteddatefrom+"' data-renteddateto='"+renteddateto+"' data-rented='"+rented+"'><td>"+carid+"</td><td>"+carmaker+"</td><td>"+carmodel+"</td><td>"+manufactoringyear+"</td><td>"+numberofseats+"</td><td>"+priceperday+"</td><td>"+renteddatefrom+"</td><td>"+renteddateto+"</td><td>"+rented+"</td><td><button class='btn btn-info btn-xs btn-edit'>Edit</button><button class='btn btn-danger btn-xs btn-delete'>Delete</button></td></tr>");
-    
-        $("input[uniqueid='carid']").val('');
-        $("input[uniqueid='carmaker']").val('');
-        $("input[uniqueid='carmodel']").val('');
-        $("input[uniqueid='manufactoringyear']").val('');
-        $("input[uniqueid='numberofseats']").val('');
-		$("input[uniqueid='priceperday']").val('');
-        $("input[uniqueid='renteddatefrom']").val('');
-        $("input[uniqueid='renteddateto']").val('');
-        $("input[uniqueid='rented']").val('');
-    });
-   
-    $("body").on("click", ".btn-delete", function(){
-        $(this).parents("tr").remove();
-    });
-    
-    $("body").on("click", ".btn-edit", function(){
-        var carid = $(this).parents("tr").attr('data-carid');
-        var carmaker = $(this).parents("tr").attr('data-carmaker');
-        var carmodel = $(this).parents("tr").attr('data-carmodel');
-        var manufactoringyear = $(this).parents("tr").attr('data-manufactoringyear');
-        var numberofseats = $(this).parents("tr").attr('data-numberofseats');
-    	var priceperday = $(this).parents("tr").attr('data-priceperday');
-        var renteddatefrom = $(this).parents("tr").attr('data-renteddatefrom');
-        var renteddateto = $(this).parents("tr").attr('data-renteddateto');
-        var rented = $(this).parents("tr").attr('data-rented');
-
-        $(this).parents("tr").find("td:eq(0)").html('<input uniqueid="edit_carid" value="'+carid+'">');
-        $(this).parents("tr").find("td:eq(1)").html('<input uniqueid="edit_carmaker" value="'+carmaker+'">');
-        $(this).parents("tr").find("td:eq(2)").html('<input uniqueid="edit_carmodel" value="'+carmodel+'">');
-    	$(this).parents("tr").find("td:eq(3)").html('<input uniqueid="edit_manufactoringyear" value="'+manufactoringyear+'">');
-        $(this).parents("tr").find("td:eq(4)").html('<input uniqueid="edit_numberofseats" value="'+numberofseats+'">');
-        $(this).parents("tr").find("td:eq(5)").html('<input uniqueid="edit_priceperday" value="'+priceperday+'">');
-    	$(this).parents("tr").find("td:eq(6)").html('<input uniqueid="edit_renteddatefrom" value="'+renteddatefrom+'">');
-        $(this).parents("tr").find("td:eq(7)").html('<input uniqueid="edit_renteddateto" value="'+renteddateto+'">');
-        $(this).parents("tr").find("td:eq(8)").html('<input uniqueid="edit_rented" value="'+rented+'">');
-        
-        
-        $(this).parents("tr").find("td:eq(9)").prepend("<button class='btn btn-info btn-xs btn-update'>Update</button><button class='btn btn-warning btn-xs btn-cancel'>Cancel</button>")
-        $(this).hide();
-    });
-   
-    $("body").on("click", ".btn-cancel", function(){
-        var carid = $(this).parents("tr").attr('data-carid');
-        var carmaker = $(this).parents("tr").attr('data-carmaker');
-        var carmodel = $(this).parents("tr").attr('data-carmodel');
-		var manufactoringyear = $(this).parents("tr").attr('data-manufactoringyear');
-        var numberofseats = $(this).parents("tr").attr('data-numberofseats');
-    	var priceperday = $(this).parents("tr").attr('data-priceperday');
-		var renteddatefrom = $(this).parents("tr").attr('data-renteddatefrom');
-        var renteddateto = $(this).parents("tr").attr('data-renteddateto');
-        var rented = $(this).parents("tr").attr('data-rented');
-    
-    
-        $(this).parents("tr").find("td:eq(0)").text(carid);
-        $(this).parents("tr").find("td:eq(1)").text(carmaker);
-        $(this).parents("tr").find("td:eq(2)").text(carmodel);
-        $(this).parents("tr").find("td:eq(3)").text(manufactoringyear);
-        $(this).parents("tr").find("td:eq(4)").text(numberofseats);
-        $(this).parents("tr").find("td:eq(5)").text(priceperday);
-        $(this).parents("tr").find("td:eq(6)").text(renteddatefrom);
-        $(this).parents("tr").find("td:eq(7)").text(renteddateto);
-        $(this).parents("tr").find("td:eq(8)").text(rented);
-   
-        $(this).parents("tr").find(".btn-edit").show();
-        $(this).parents("tr").find(".btn-update").remove();
-        $(this).parents("tr").find(".btn-cancel").remove();
-    });
-   
-    $("body").on("click", ".btn-update", function(){
-        var carid = $(this).parents("tr").find("input[uniqueid='edit_carid']").val();
-        var carmaker = $(this).parents("tr").find("input[uniqueid='edit_carmaker']").val();
-    	var carmodel = $(this).parents("tr").find("input[uniqueid='edit_carmodel']").val();
-        var manufactoringyear = $(this).parents("tr").find("input[uniqueid='edit_manufactoringyear']").val();
-    	var numberofseats = $(this).parents("tr").find("input[uniqueid='edit_numberofseats']").val();
-        var priceperday = $(this).parents("tr").find("input[uniqueid='edit_priceperday']").val();
-        var renteddatefrom = $(this).parents("tr").find("input[uniqueid='edit_renteddatefrom']").val();
-    	var renteddateto = $(this).parents("tr").find("input[uniqueid='edit_renteddateto']").val();
-       var rented = $(this).parents("tr").find("input[uniqueid='edit_rented']").val(); 
-        $(this).parents("tr").find("td:eq(0)").text(carid);
-        $(this).parents("tr").find("td:eq(1)").text(carmaker);
-     $(this).parents("tr").find("td:eq(2)").text(carmodel);
-     $(this).parents("tr").find("td:eq(3)").text(manufactoringyear);
-     $(this).parents("tr").find("td:eq(4)").text(numberofseats);
-     $(this).parents("tr").find("td:eq(5)").text(priceperday);
-     $(this).parents("tr").find("td:eq(6)").text(renteddatefrom);
-     $(this).parents("tr").find("td:eq(7)").text(renteddateto);
-        $(this).parents("tr").find("td:eq(8)").text(rented);
-     
-        $(this).parents("tr").attr('data-carid', carid);
-        $(this).parents("tr").attr('data-carmaker', carmaker);
-    	$(this).parents("tr").attr('data-carmodel', carmodel);
-        $(this).parents("tr").attr('data-manufactoringyear', manufactoringyear);
-    	$(this).parents("tr").attr('data-numberofseats', numberofseats);
-		$(this).parents("tr").attr('data-priceperday', priceperday);
-        $(this).parents("tr").attr('data-renteddatefrom', renteddatefrom);
-    	$(this).parents("tr").attr('data-renteddateto', renteddateto);
-        $(this).parents("tr").attr('data-rented', rented);
-    
-        $(this).parents("tr").find(".btn-edit").show();
-        $(this).parents("tr").find(".btn-cancel").remove();
-        $(this).parents("tr").find(".btn-update").remove();
-    });
-    
-</script>
-
-</body>
+        <label>car id:</label>
+        <input type="number" uniqueid="carid" class="form-control" value="223" required="">
+      </div>
+      <div class="form-group">
+        <label>carmaker:</label>
+        <input type="text" uniqueid="carmaker" class="form-control" value="Honda" required="">
+      </div>
+      <div class="form-group">
+        <label>carmodel:</label>
+        <input type="text" uniqueid="carmodel" class="form-control" value="Civic" required="">
+      </div>
+      <div class="form-group">
+        <label>manufacturing year:</label>
+        <input type="text" uniqueid="manufacturingyear" class="form-control" value="2008" required="">
+      </div>
+      <div class="form-group">
+        <label>number of seats:</label>
+        <input type="number" uniqueid="numberofseats" class="form-control" value="4" required="">
+      </div>
+      <div class="form-group">
+        <label>price per day:</label>
+        <input type="number" uniqueid="priceperday" class="form-control" value="65" required="">
+      </div>
+      <div class="form-group">
+        <label>rented date from:</label>
+        <input type="date" uniqueid="renteddatefrom" class="form-control" required="">
+      </div>
+      <div class="form-group">
+        <label>rented date to:</label>
+        <input type="date" uniqueid="renteddateto" class="form-control" required="">
+      </div>
+      <div class="form-group">
+        <label>rented:</label>
+        <input type="text" uniqueid="rented" value="yes" class="form-control" required="">
+      </div>
+      <button type="submit" class="btn btn-success save-btn">Submit</button>
+    </form>
+    <br/>
+    <table class="table table-bordered data-table">
+      <thead>
+        <tr>
+          <th>carid</th>
+          <th>carmaker</th>
+          <th>carmodel</th>
+          <th>manufacturingyear</th>
+          <th>numberofseats</th>
+          <th>priceperday</th>
+          <th>renteddatefrom</th>
+          <th>renteddateto</th>
+          <th>rented</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <script type="text/javascript">
+      $("form").submit(function(e){
+          e.preventDefault();
+          var carid = $("input[uniqueid='carid']").val();
+          var carmaker = $("input[uniqueid='carmaker']").val();
+          var carmodel = $("input[uniqueid='carmodel']").val();
+          var manufacturingyear = $("input[uniqueid='manufacturingyear']").val();
+          var numberofseats = $("input[uniqueid='numberofseats']").val();
+          var priceperday = $("input[uniqueid='priceperday']").val();
+          var renteddatefrom = $("input[uniqueid='renteddatefrom']").val();
+          var renteddateto = $("input[uniqueid='renteddateto']").val();
+          var rented = $("input[uniqueid='rented']").val();
+          
+          $(".data-table tbody").append("<tr data-carid='"+carid+"' data-carmaker='"+carmaker+"' data-carmodel='"+carmodel+"' data-manufacturingyear='"+manufacturingyear+"' data-numberofseats='"+numberofseats+"' data-priceperday='"+priceperday+"' data-renteddatefrom='"+renteddatefrom+"' data-renteddateto='"+renteddateto+"' data-rented='"+rented+"'><td>"+carid+"</td><td>"+carmaker+"</td><td>"+carmodel+"</td><td>"+manufacturingyear+"</td><td>"+numberofseats+"</td><td>"+priceperday+"</td><td>"+renteddatefrom+"</td><td>"+renteddateto+"</td><td>"+rented+"</td><td><button class='btn btn-info btn-xs btn-edit'>Edit</button><button class='btn btn-danger btn-xs btn-delete'>Delete</button></td></tr>");
+      
+          $("input[uniqueid='carid']").val('');
+          $("input[uniqueid='carmaker']").val('');
+          $("input[uniqueid='carmodel']").val('');
+          $("input[uniqueid='manufacturingyear']").val('');
+          $("input[uniqueid='numberofseats']").val('');
+      $("input[uniqueid='priceperday']").val('');
+          $("input[uniqueid='renteddatefrom']").val('');
+          $("input[uniqueid='renteddateto']").val('');
+          $("input[uniqueid='rented']").val('');
+      });
+      
+      $("body").on("click", ".btn-delete", function(){
+          $(this).parents("tr").remove();
+      });
+      
+      $("body").on("click", ".btn-edit", function(){
+          var carid = $(this).parents("tr").attr('data-carid');
+          var carmaker = $(this).parents("tr").attr('data-carmaker');
+          var carmodel = $(this).parents("tr").attr('data-carmodel');
+          var manufacturingyear = $(this).parents("tr").attr('data-manufacturingyear');
+          var numberofseats = $(this).parents("tr").attr('data-numberofseats');
+      	var priceperday = $(this).parents("tr").attr('data-priceperday');
+          var renteddatefrom = $(this).parents("tr").attr('data-renteddatefrom');
+          var renteddateto = $(this).parents("tr").attr('data-renteddateto');
+          var rented = $(this).parents("tr").attr('data-rented');
+      
+          $(this).parents("tr").find("td:eq(0)").html('<input uniqueid="edit_carid" value="'+carid+'">');
+          $(this).parents("tr").find("td:eq(1)").html('<input uniqueid="edit_carmaker" value="'+carmaker+'">');
+          $(this).parents("tr").find("td:eq(2)").html('<input uniqueid="edit_carmodel" value="'+carmodel+'">');
+      	$(this).parents("tr").find("td:eq(3)").html('<input uniqueid="edit_manufacturingyear" value="'+manufacturingyear+'">');
+          $(this).parents("tr").find("td:eq(4)").html('<input uniqueid="edit_numberofseats" value="'+numberofseats+'">');
+          $(this).parents("tr").find("td:eq(5)").html('<input uniqueid="edit_priceperday" value="'+priceperday+'">');
+      	$(this).parents("tr").find("td:eq(6)").html('<input uniqueid="edit_renteddatefrom" value="'+renteddatefrom+'">');
+          $(this).parents("tr").find("td:eq(7)").html('<input uniqueid="edit_renteddateto" value="'+renteddateto+'">');
+          $(this).parents("tr").find("td:eq(8)").html('<input uniqueid="edit_rented" value="'+rented+'">');
+          
+          
+          $(this).parents("tr").find("td:eq(9)").prepend("<button class='btn btn-info btn-xs btn-update'>Update</button><button class='btn btn-warning btn-xs btn-cancel'>Cancel</button>")
+          $(this).hide();
+      });
+      
+      $("body").on("click", ".btn-cancel", function(){
+          var carid = $(this).parents("tr").attr('data-carid');
+          var carmaker = $(this).parents("tr").attr('data-carmaker');
+          var carmodel = $(this).parents("tr").attr('data-carmodel');
+      var manufacturingyear = $(this).parents("tr").attr('data-manufacturingyear');
+          var numberofseats = $(this).parents("tr").attr('data-numberofseats');
+      	var priceperday = $(this).parents("tr").attr('data-priceperday');
+      var renteddatefrom = $(this).parents("tr").attr('data-renteddatefrom');
+          var renteddateto = $(this).parents("tr").attr('data-renteddateto');
+          var rented = $(this).parents("tr").attr('data-rented');
+      
+      
+          $(this).parents("tr").find("td:eq(0)").text(carid);
+          $(this).parents("tr").find("td:eq(1)").text(carmaker);
+          $(this).parents("tr").find("td:eq(2)").text(carmodel);
+          $(this).parents("tr").find("td:eq(3)").text(manufacturingyear);
+          $(this).parents("tr").find("td:eq(4)").text(numberofseats);
+          $(this).parents("tr").find("td:eq(5)").text(priceperday);
+          $(this).parents("tr").find("td:eq(6)").text(renteddatefrom);
+          $(this).parents("tr").find("td:eq(7)").text(renteddateto);
+          $(this).parents("tr").find("td:eq(8)").text(rented);
+      
+          $(this).parents("tr").find(".btn-edit").show();
+          $(this).parents("tr").find(".btn-update").remove();
+          $(this).parents("tr").find(".btn-cancel").remove();
+      });
+      
+      $("body").on("click", ".btn-update", function(){
+          var carid = $(this).parents("tr").find("input[uniqueid='edit_carid']").val();
+          var carmaker = $(this).parents("tr").find("input[uniqueid='edit_carmaker']").val();
+      	var carmodel = $(this).parents("tr").find("input[uniqueid='edit_carmodel']").val();
+          var manufacturingyear = $(this).parents("tr").find("input[uniqueid='edit_manufacturingyear']").val();
+      	var numberofseats = $(this).parents("tr").find("input[uniqueid='edit_numberofseats']").val();
+          var priceperday = $(this).parents("tr").find("input[uniqueid='edit_priceperday']").val();
+          var renteddatefrom = $(this).parents("tr").find("input[uniqueid='edit_renteddatefrom']").val();
+      	var renteddateto = $(this).parents("tr").find("input[uniqueid='edit_renteddateto']").val();
+         var rented = $(this).parents("tr").find("input[uniqueid='edit_rented']").val(); 
+          $(this).parents("tr").find("td:eq(0)").text(carid);
+          $(this).parents("tr").find("td:eq(1)").text(carmaker);
+       $(this).parents("tr").find("td:eq(2)").text(carmodel);
+       $(this).parents("tr").find("td:eq(3)").text(manufacturingyear);
+       $(this).parents("tr").find("td:eq(4)").text(numberofseats);
+       $(this).parents("tr").find("td:eq(5)").text(priceperday);
+       $(this).parents("tr").find("td:eq(6)").text(renteddatefrom);
+       $(this).parents("tr").find("td:eq(7)").text(renteddateto);
+          $(this).parents("tr").find("td:eq(8)").text(rented);
+       
+          $(this).parents("tr").attr('data-carid', carid);
+          $(this).parents("tr").attr('data-carmaker', carmaker);
+      	$(this).parents("tr").attr('data-carmodel', carmodel);
+          $(this).parents("tr").attr('data-manufacturingyear', manufacturingyear);
+      	$(this).parents("tr").attr('data-numberofseats', numberofseats);
+      $(this).parents("tr").attr('data-priceperday', priceperday);
+          $(this).parents("tr").attr('data-renteddatefrom', renteddatefrom);
+      	$(this).parents("tr").attr('data-renteddateto', renteddateto);
+          $(this).parents("tr").attr('data-rented', rented);
+      
+          $(this).parents("tr").find(".btn-edit").show();
+          $(this).parents("tr").find(".btn-cancel").remove();
+          $(this).parents("tr").find(".btn-update").remove();
+      });
+      
+    </script>
+  </body>
 </html>
